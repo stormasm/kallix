@@ -2,8 +2,8 @@ use gpui::*;
 use std::sync::Arc;
 
 use crate::elements::{tab_bar, UiAction};
-use crate::tabxa::TrackView;
 use crate::theme::colours;
+use crate::tracks::TrackView;
 use crate::Album;
 use crate::Albums;
 use crate::Library;
