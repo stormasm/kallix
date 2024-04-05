@@ -1,8 +1,16 @@
 use gpui::*;
 use std::sync::Arc;
 
-use crate::*;
-use elements::{tab_bar, UiAction};
+//use crate::*;
+use crate::tabxa::TrackView;
+use crate::tabxa::*;
+//use crate::tabxa::TrackView;
+use crate::elements::{tab_bar, UiAction};
+use crate::theme::colours;
+use crate::Album;
+use crate::Albums;
+use crate::Library;
+use crate::UiEvent;
 
 type Vcx<'a> = ViewContext<'a, Browse>;
 
@@ -35,7 +43,7 @@ impl Browse {
             this.update_view(
                 cx,
                 library,
-                tabxa::TrackView::Album(album.artist_name.clone(), album.title.clone()),
+                TrackView::Album(album.artist_name.clone(), album.title.clone()),
             );
         });
     }
@@ -48,7 +56,7 @@ impl Render for Browse {
             .flex_grow()
             .overflow_scroll()
             .rounded_b_sm()
-            .bg(rgb(theme::colours::AMSTERDAM))
+            .bg(rgb(colours::AMSTERDAM))
             .p(px(1.));
 
         let view = match self.selected_tab {
