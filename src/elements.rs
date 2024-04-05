@@ -1,9 +1,14 @@
 use gpui::*;
 use std::sync::Arc;
 
-use crate::*;
-
-use on_right_click::ContextMenuItem;
+use crate::on_right_click::ContextMenuItem;
+use crate::theme;
+use crate::Album;
+use crate::Albums;
+use crate::RightClickEvent;
+use crate::Track;
+use crate::Tracks;
+use crate::UiEvent;
 
 pub struct UiAction {
     pub label: &'static str,
