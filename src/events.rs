@@ -3,7 +3,7 @@ use EventEmitter;
 
 use crate::*;
 
-use context_menu::ContextMenuItem;
+use on_right_click::ContextMenuItem;
 
 #[derive(Clone)]
 pub enum UiEvent {

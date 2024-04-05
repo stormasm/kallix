@@ -1,14 +1,14 @@
-pub mod context_menu;
 mod dropdown;
 mod kallax;
+pub mod on_right_click;
 pub mod tabxa;
 mod tabxa_tabxb;
 mod tabxb;
 mod tabxc_tabxd;
 
-pub use context_menu::ContextMenu;
 pub use dropdown::Dropdown;
 pub use kallax::Kallax;
+pub use on_right_click::ContextMenu;
 pub use tabxa::Tracks;
 pub use tabxa_tabxb::Browse;
 pub use tabxb::Albums;

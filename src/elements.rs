@@ -3,7 +3,7 @@ use std::sync::Arc;
 
 use crate::*;
 
-use context_menu::ContextMenuItem;
+use on_right_click::ContextMenuItem;
 
 pub struct UiAction {
     pub label: &'static str,
