@@ -7,7 +7,9 @@ use elements::{tab_bar, UiAction};
 type Vcx<'a> = ViewContext<'a, Browse>;
 
 const TRACKS: usize = 0;
-const ALBUMS: usize = 1;
+const ARTISTS: usize = 1;
+const ALBUMS: usize = 2;
+const PLAYLISTS: usize = 3;
 
 pub struct Browse {
     pub selected_tab: usize,
@@ -78,8 +80,16 @@ impl Render for Browse {
                         event: Arc::new(UiEvent::BrowseTabClicked(TRACKS)),
                     },
                     UiAction {
+                        label: "Artists",
+                        event: Arc::new(UiEvent::BrowseTabClicked(ARTISTS)),
+                    },
+                    UiAction {
                         label: "Albums",
                         event: Arc::new(UiEvent::BrowseTabClicked(ALBUMS)),
+                    },
+                    UiAction {
+                        label: "Playlists",
+                        event: Arc::new(UiEvent::BrowseTabClicked(PLAYLISTS)),
                     },
                 ],
                 self.selected_tab,
