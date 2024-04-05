@@ -1,9 +1,9 @@
 use gpui::*;
 use std::sync::Arc;
 
-use crate::on_right_click::ContextMenuItem;
+//use crate::on_right_click::ContextMenuItem;
 use crate::theme;
-use crate::RightClickEvent;
+//use crate::RightClickEvent;
 use crate::Track;
 use crate::Tracks;
 use crate::UiEvent;
@@ -14,6 +14,7 @@ pub fn track(index: usize, track: &Arc<Track>, cx: &mut ViewContext<Tracks>) -> 
         move |_this, _event, cx| cx.emit(UiEvent::play(&track))
     });
 
+    /*
     let on_right_click = cx.listener({
         let track = Arc::clone(track);
         move |_this, event: &MouseDownEvent, cx: &mut ViewContext<Tracks>| {
@@ -32,6 +33,7 @@ pub fn track(index: usize, track: &Arc<Track>, cx: &mut ViewContext<Tracks>) -> 
             })));
         }
     });
+    */
 
     div()
         .id(ElementId::Name(track.title.clone().into()))
@@ -51,5 +53,5 @@ pub fn track(index: usize, track: &Arc<Track>, cx: &mut ViewContext<Tracks>) -> 
         )
         .child(div().child(track.title.clone()))
         .on_click(on_click)
-        .on_mouse_down(MouseButton::Right, on_right_click)
+    //.on_mouse_down(MouseButton::Right, on_right_click)
 }

@@ -2,11 +2,11 @@ use gpui::*;
 use std::sync::Arc;
 use EventEmitter;
 
-use crate::on_right_click::ContextMenuItem;
+//use crate::on_right_click::ContextMenuItem;
 use crate::Album;
 use crate::Albums;
 use crate::Browse;
-use crate::ContextMenu;
+//use crate::ContextMenu;
 use crate::Dropdown;
 use crate::NowPlaying;
 use crate::Playback;
@@ -23,7 +23,7 @@ pub enum UiEvent {
     AlbumClicked(Arc<Album>),
     NowPlayingTabClicked(usize),
     BrowseTabClicked(usize),
-    RightClick(RightClickEvent),
+    //RightClick(RightClickEvent),
 }
 impl UiEvent {
     pub fn play(track: &Arc<Track>) -> Arc<UiEvent> {
@@ -44,7 +44,7 @@ impl UiEvent {
 }
 impl EventEmitter<Arc<UiEvent>> for Albums {}
 impl EventEmitter<Arc<UiEvent>> for Browse {}
-impl EventEmitter<Arc<UiEvent>> for ContextMenu {}
+//impl EventEmitter<Arc<UiEvent>> for ContextMenu {}
 impl EventEmitter<Arc<UiEvent>> for Dropdown {}
 impl EventEmitter<Arc<UiEvent>> for NowPlaying {}
 impl EventEmitter<Arc<UiEvent>> for Tracks {}
@@ -59,11 +59,13 @@ pub struct QueueClickedEvent {
     pub track: Arc<Track>,
 }
 
+/*
 #[derive(Clone)]
 pub struct RightClickEvent {
     pub position: Point<Pixels>,
-    pub items: Arc<Vec<ContextMenuItem>>,
+    //pub items: Arc<Vec<ContextMenuItem>>,
 }
+*/
 
 #[derive(Clone)]
 pub enum PlaybackEvent {

@@ -3,7 +3,7 @@ use std::sync::Arc;
 
 use crate::theme;
 use crate::Browse;
-use crate::ContextMenu;
+//use crate::ContextMenu;
 use crate::Library;
 use crate::NowPlaying;
 use crate::Playback;
@@ -14,7 +14,7 @@ pub struct Kallax {
     library: Model<Library>,
     browse: View<Browse>,
     now_playing: View<NowPlaying>,
-    context_menu: View<ContextMenu>,
+    //context_menu: View<ContextMenu>,
 }
 
 impl Kallax {
@@ -24,7 +24,7 @@ impl Kallax {
 
         let browse = cx.new_view(|cx| Browse::new(cx, &library));
         let now_playing = cx.new_view(|cx| NowPlaying::new(cx, &playback));
-        let context_menu = cx.new_view(|_cx| ContextMenu::new());
+        //let context_menu = cx.new_view(|_cx| ContextMenu::new());
 
         cx.subscribe(
             &browse,
@@ -52,6 +52,7 @@ impl Kallax {
         )
         .detach();
 
+        /*
         cx.subscribe(
             &context_menu,
             move |subscriber, _emitter, event: &Arc<UiEvent>, cx| {
@@ -59,6 +60,7 @@ impl Kallax {
             },
         )
         .detach();
+        */
 
         cx.subscribe(
             &now_playing,
@@ -73,7 +75,7 @@ impl Kallax {
             library,
             browse,
             now_playing,
-            context_menu,
+            //ccontext_menu,
         }
     }
 
@@ -111,17 +113,19 @@ impl Kallax {
                 this.selected_tab = tab_index;
                 cx.notify();
             }),
+            /*
             UiEvent::RightClick(event) => self.context_menu.update(cx, |this, cx| {
                 this.items = Arc::clone(&event.items);
                 this.position = Some(event.position);
                 cx.notify();
             }),
+            */
         };
     }
 }
 
 impl Render for Kallax {
-    fn render(&mut self, cx: &mut ViewContext<Self>) -> impl IntoElement {
+    fn render(&mut self, _cx: &mut ViewContext<Self>) -> impl IntoElement {
         div()
             .size_full()
             .flex()
@@ -141,16 +145,17 @@ impl Render for Kallax {
                     .text_color(rgb(theme::colours::WINTER))
                     .font("Iosevka")
                     .child(self.browse.clone())
-                    .child(self.now_playing.clone())
-                    .child(self.context_menu.clone())
-                    .on_mouse_down(
-                        MouseButton::Left,
-                        cx.listener(move |this, _event, cx| {
-                            this.context_menu.update(cx, |context_menu, _cx| {
-                                context_menu.position = None;
-                            });
-                        }),
-                    ),
+                    .child(self.now_playing.clone()), /*
+                                                      .child(self.context_menu.clone())
+                                                      .on_mouse_down(
+                                                          MouseButton::Left,
+                                                          cx.listener(move |this, _event, cx| {
+                                                              this.context_menu.update(cx, |context_menu, _cx| {
+                                                                  context_menu.position = None;
+                                                              });
+                                                          }),
+                                                      ),
+                                                      */
             )
     }
 }
