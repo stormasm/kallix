@@ -1,8 +1,11 @@
 use gpui::*;
 use std::sync::Arc;
 
-use crate::*;
-use elements::{tab_bar, UiAction};
+use crate::elements::{tab_bar, UiAction};
+use crate::theme;
+use crate::Playback;
+use crate::Track;
+use crate::UiEvent;
 
 type Vcx<'a> = ViewContext<'a, NowPlaying>;
 
