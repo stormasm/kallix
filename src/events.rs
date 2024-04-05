@@ -16,7 +16,7 @@ use crate::Tracks;
 #[derive(Clone)]
 pub enum UiEvent {
     PlayClicked(PlayClickedEvent),
-    QueueClicked(QueueClickedEvent),
+    //QueueClicked(QueueClickedEvent),
     PauseClicked,
     ResumeClicked,
     SkipClicked,
@@ -31,13 +31,13 @@ impl UiEvent {
             track: Arc::clone(track),
         }))
     }
-
-    pub fn queue(track: &Arc<Track>) -> Arc<UiEvent> {
-        Arc::new(UiEvent::QueueClicked(QueueClickedEvent {
-            track: Arc::clone(track),
-        }))
-    }
-
+    /*
+        pub fn queue(track: &Arc<Track>) -> Arc<UiEvent> {
+            Arc::new(UiEvent::QueueClicked(QueueClickedEvent {
+                track: Arc::clone(track),
+            }))
+        }
+    */
     pub fn album(album: &Arc<Album>) -> Arc<UiEvent> {
         Arc::new(UiEvent::AlbumClicked(Arc::clone(album)))
     }

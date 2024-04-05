@@ -85,10 +85,12 @@ impl Kallax {
                 this.play(Arc::clone(&event.track), cx);
                 cx.notify();
             }),
+            /*
             UiEvent::QueueClicked(event) => self.playback.update(cx, |this, cx| {
                 this.add_to_queue(Arc::clone(&event.track), cx);
                 cx.notify();
             }),
+            */
             UiEvent::PauseClicked => self.playback.update(cx, |this, cx| {
                 this.pause(cx);
                 cx.notify();

@@ -30,7 +30,7 @@ fn main() {
                 appears_transparent: true,
                 ..Default::default()
             }),
-            bounds: WindowBounds::Fixed(Bounds {
+            bounds: Some(Bounds {
                 size: size(px(800.), px(600.)).into(),
                 ..Default::default()
             }),

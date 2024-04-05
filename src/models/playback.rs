@@ -44,10 +44,12 @@ impl Playback {
         cx.emit(PlaybackEvent::start(&track));
     }
 
+    /*
     pub fn add_to_queue(&mut self, track: Arc<Track>, cx: &mut AppContext) {
         self.player.add_to_queue(&track, cx);
         self.queue.add_to_queue(&track);
     }
+    */
 
     pub fn pause(&mut self, cx: &mut Mcx) {
         self.player.pause(cx);
@@ -118,9 +120,11 @@ impl Queue {
         self.get_current()
     }
 
+    /*
     fn add_to_queue(&mut self, track: &Arc<Track>) {
         self.tracks.push(Arc::clone(track));
     }
+    */
 }
 
 struct Player {
@@ -187,6 +191,7 @@ impl Player {
             .detach();
     }
 
+    /*
     fn add_to_queue(&self, track: &Arc<Track>, cx: &mut AppContext) {
         let track = Arc::clone(track);
         let sink = Arc::clone(&self.sink);
@@ -201,6 +206,7 @@ impl Player {
             })
             .detach();
     }
+    */
 
     fn pause(&self, cx: &mut AppContext) {
         let sink = Arc::clone(&self.sink);
