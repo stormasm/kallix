@@ -1,15 +1,15 @@
 mod albums;
-mod browse;
-pub mod context_menu;
 mod dropdown;
 mod kallax;
-mod now_playing;
+pub mod on_right_click;
+mod part01;
+mod part02;
 pub mod tracks;
 
 pub use albums::Albums;
-pub use browse::Browse;
-pub use context_menu::ContextMenu;
 pub use dropdown::Dropdown;
 pub use kallax::Kallax;
-pub use now_playing::NowPlaying;
+pub use on_right_click::ContextMenu;
+pub use part01::Browse;
+pub use part02::NowPlaying;
 pub use tracks::Tracks;

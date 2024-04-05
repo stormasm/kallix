@@ -1,7 +1,8 @@
 use gpui::*;
 use std::sync::Arc;
 
-use crate::*;
+use crate::theme;
+use crate::UiEvent;
 
 pub struct ContextMenu {
     pub position: Option<Point<Pixels>>,

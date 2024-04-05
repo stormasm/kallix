@@ -1,7 +1,13 @@
 use gpui::*;
 use std::sync::Arc;
 
-use crate::*;
+use crate::theme;
+use crate::Browse;
+use crate::ContextMenu;
+use crate::Library;
+use crate::NowPlaying;
+use crate::Playback;
+use crate::UiEvent;
 
 pub struct Kallax {
     playback: Model<Playback>,

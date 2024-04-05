@@ -1,9 +1,12 @@
 use gpui::*;
 use std::sync::Arc;
 
-use crate::*;
-
 use self::elements::UiAction;
+use crate::elements;
+use crate::Dropdown;
+use crate::Library;
+use crate::Track;
+use crate::UiEvent;
 
 type Vcx<'a> = ViewContext<'a, Tracks>;
 

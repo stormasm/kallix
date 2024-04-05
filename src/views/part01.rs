@@ -1,13 +1,21 @@
 use gpui::*;
 use std::sync::Arc;
 
-use crate::*;
-use elements::{tab_bar, UiAction};
+use crate::elements::{tab_bar, UiAction};
+use crate::theme::colours;
+use crate::tracks::TrackView;
+use crate::Album;
+use crate::Albums;
+use crate::Library;
+use crate::Tracks;
+use crate::UiEvent;
 
 type Vcx<'a> = ViewContext<'a, Browse>;
 
 const TRACKS: usize = 0;
-const ALBUMS: usize = 1;
+const ARTISTS: usize = 1;
+const ALBUMS: usize = 2;
+const PLAYLISTS: usize = 3;
 
 pub struct Browse {
     pub selected_tab: usize,
@@ -33,7 +41,7 @@ impl Browse {
             this.update_view(
                 cx,
                 library,
-                tracks::TrackView::Album(album.artist_name.clone(), album.title.clone()),
+                TrackView::Album(album.artist_name.clone(), album.title.clone()),
             );
         });
     }
@@ -46,7 +54,7 @@ impl Render for Browse {
             .flex_grow()
             .overflow_scroll()
             .rounded_b_sm()
-            .bg(rgb(theme::colours::AMSTERDAM))
+            .bg(rgb(colours::AMSTERDAM))
             .p(px(1.));
 
         let view = match self.selected_tab {
@@ -78,8 +86,16 @@ impl Render for Browse {
                         event: Arc::new(UiEvent::BrowseTabClicked(TRACKS)),
                     },
                     UiAction {
+                        label: "Artists",
+                        event: Arc::new(UiEvent::BrowseTabClicked(ARTISTS)),
+                    },
+                    UiAction {
                         label: "Albums",
                         event: Arc::new(UiEvent::BrowseTabClicked(ALBUMS)),
+                    },
+                    UiAction {
+                        label: "Playlists",
+                        event: Arc::new(UiEvent::BrowseTabClicked(PLAYLISTS)),
                     },
                 ],
                 self.selected_tab,

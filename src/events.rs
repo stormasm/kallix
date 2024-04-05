@@ -1,9 +1,17 @@
+use gpui::*;
 use std::sync::Arc;
 use EventEmitter;
 
-use crate::*;
-
-use context_menu::ContextMenuItem;
+use crate::on_right_click::ContextMenuItem;
+use crate::Album;
+use crate::Albums;
+use crate::Browse;
+use crate::ContextMenu;
+use crate::Dropdown;
+use crate::NowPlaying;
+use crate::Playback;
+use crate::Track;
+use crate::Tracks;
 
 #[derive(Clone)]
 pub enum UiEvent {

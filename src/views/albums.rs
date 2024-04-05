@@ -1,7 +1,10 @@
 use gpui::*;
 use std::{collections::HashSet, sync::Arc};
 
-use crate::*;
+use crate::elements;
+use crate::Album;
+use crate::Library;
+use crate::Track;
 
 type Vcx<'a> = ViewContext<'a, Albums>;
 
