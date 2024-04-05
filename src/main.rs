@@ -24,6 +24,15 @@ fn main() {
         cx.on_action(|_: &Quit, cx| cx.quit());
         cx.bind_keys([KeyBinding::new("cmd-q", Quit, None)]);
 
+        cx.set_menus(vec![Menu {
+            name: "Kallix",
+            items: vec![MenuItem::Action {
+                name: "Quit",
+                action: Box::new(Quit),
+                os_action: None,
+            }],
+        }]);
+
         let window_options = WindowOptions {
             titlebar: Some(TitlebarOptions {
                 title: Some(SharedString::from("Kallax")),
