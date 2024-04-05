@@ -1,7 +1,7 @@
 use gpui::*;
 use std::sync::Arc;
 
-use crate::theme::colours;
+use crate::theme;
 use crate::Browse;
 use crate::ContextMenu;
 use crate::Library;
@@ -135,10 +135,10 @@ impl Render for Kallax {
                     .flex()
                     .min_h_0()
                     .gap(px(2.))
-                    .bg(rgb(colours::STILL))
+                    .bg(rgb(theme::colours::STILL))
                     .rounded_md()
                     .p(px(2.))
-                    .text_color(rgb(colours::WINTER))
+                    .text_color(rgb(theme::colours::WINTER))
                     .font("Iosevka")
                     .child(self.browse.clone())
                     .child(self.now_playing.clone())
