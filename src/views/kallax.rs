@@ -1,7 +1,13 @@
 use gpui::*;
 use std::sync::Arc;
 
-use crate::*;
+use crate::theme::colours;
+use crate::Browse;
+use crate::ContextMenu;
+use crate::Library;
+use crate::NowPlaying;
+use crate::Playback;
+use crate::UiEvent;
 
 pub struct Kallax {
     playback: Model<Playback>,
@@ -129,10 +135,10 @@ impl Render for Kallax {
                     .flex()
                     .min_h_0()
                     .gap(px(2.))
-                    .bg(rgb(theme::colours::STILL))
+                    .bg(rgb(colours::STILL))
                     .rounded_md()
                     .p(px(2.))
-                    .text_color(rgb(theme::colours::WINTER))
+                    .text_color(rgb(colours::WINTER))
                     .font("Iosevka")
                     .child(self.browse.clone())
                     .child(self.now_playing.clone())
