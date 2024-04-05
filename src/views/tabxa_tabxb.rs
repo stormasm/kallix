@@ -33,7 +33,7 @@ impl Browse {
             this.update_view(
                 cx,
                 library,
-                tracks::TrackView::Album(album.artist_name.clone(), album.title.clone()),
+                tabxa::TrackView::Album(album.artist_name.clone(), album.title.clone()),
             );
         });
     }
