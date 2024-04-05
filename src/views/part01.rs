@@ -1,15 +1,13 @@
 use gpui::*;
 use std::sync::Arc;
 
-//use crate::*;
-use crate::tabxa::TrackView;
-use crate::tabxa::*;
-//use crate::tabxa::TrackView;
 use crate::elements::{tab_bar, UiAction};
+use crate::tabxa::TrackView;
 use crate::theme::colours;
 use crate::Album;
 use crate::Albums;
 use crate::Library;
+use crate::Tracks;
 use crate::UiEvent;
 
 type Vcx<'a> = ViewContext<'a, Browse>;
