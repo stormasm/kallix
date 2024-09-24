@@ -1,4 +1,7 @@
 
+- [Zed code at this commit point 6327f3ced845224de39176613e522eb780976a01](https://github.com/zed-industries/zed/tree/6327f3ced845224de39176613e522eb780976a01)
+- [Zed code here](https://github.com/zed-industries/zed/tree/6327f3ced845224de39176613e522eb780976a01)
+
 So currently the *removeoverlay* branch is for updating the code to the latest
 gpui code.  All that was added here was the ability to get the cmd-q working
 again; as it broke when the code got updated to the latest gpui.
